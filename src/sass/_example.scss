@@ -1,1 +1,41 @@
+body {
+  justify-content: center;
 
+  background-image: url('../images/iss048e002082-orig.jpg');
+  // background-image: url('https://share.america.gov/wp-content/uploads/2017/04/iss048e002082-orig.jpg');
+  background-repeat: no-repeat;
+}
+
+h1 {
+  margin: 50px;
+  color: rgb(116, 168, 116);
+}
+
+.timer {
+  display: flex;
+}
+
+.field {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+
+  margin: 20px;
+  padding: 40px;
+
+  font-size: 40px;
+  font-weight: bolder;
+  font-style: italic;
+
+  color: rgb(116, 168, 116);
+  background-size: cover;
+}
+
+.field .value {
+  font-size: 80px;
+  font-weight: bolder;
+  font-style: normal;
+
+  color: gold;
+}
