@@ -1,10 +1,11 @@
-const refs = {
-  days: document.querySelector('[data-value="days"]'),
-  hours: document.querySelector('[data-value="hours"]'),
-  mins: document.querySelector('[data-value="mins"]'),
-  secs: document.querySelector('[data-value="secs"]'),
-};
-
+// Просто закинуть const в класс нельзя
+// Err: The 'const' modifier can only be used in TypeScript files.ts(8009)
+// const refs = {
+//   days: document.querySelector('[data-value="days"]'),
+//   hours: document.querySelector('[data-value="hours"]'),
+//   mins: document.querySelector('[data-value="mins"]'),
+//   secs: document.querySelector('[data-value="secs"]'),
+// };
 class CountdownTimer {
   constructor ({ selector, targetDate }) {
     this.selector = selector;
@@ -22,10 +23,14 @@ class CountdownTimer {
   }
 
   updateTimer ({ days, hours, mins, secs }) {
-    (refs.days.textContent = `${days}`),
-    (refs.hours.textContent = `${hours}`),
-    (refs.mins.textContent = `${mins}`),
-    (refs.secs.textContent = `${secs}`);
+    (this.selector.querySelector('[data-value="days"]').textContent = `${days}`),
+      (this.selector.querySelector('[data-value="hours"]').textContent = `${hours}`),
+      (this.selector.querySelector('[data-value="mins"]').textContent = `${mins}`),
+      (this.selector.querySelector('[data-value="secs"]').textContent = `${secs}`);
+    // (refs.days.textContent = `${days}`),
+    // (refs.hours.textContent = `${hours}`),
+    // (refs.mins.textContent = `${mins}`),
+    // (refs.secs.textContent = `${secs}`);
   }
 
   getTimeComponents (time) {
@@ -43,8 +48,14 @@ class CountdownTimer {
 }
 
 new CountdownTimer({
-  selector: '#timer-1',
+  // selector: '#timer-1',
+  selector: document.querySelector('#timer-1'),
   targetDate: new Date('Feb 02, 2022'),
+});
+
+new CountdownTimer({
+  selector: document.querySelector('#timer-2'),
+  targetDate: new Date('Apr 02, 2040'),
 });
 
 /*
